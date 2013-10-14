@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       login_user!(@user)
       render :show
     else
-      flash[:errors] = @user.errors.full_messages
+      flash[:errors] ||= []
+      flash[:errors] << @user.errors.full_messages
       render :new
     end
   end

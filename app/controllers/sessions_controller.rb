@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:email], params[:secret])
+    @user = User.find_by_credentials(params[:user][:email], params[:user][:secret])
     login_user!(@user)
-    render :show
+    redirect_to user_url(@user)
   end
 
   def destroy
