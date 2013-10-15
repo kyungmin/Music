@@ -27,6 +27,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development do
   gem 'better_errors'
+  gem 'letter_opener'
   gem 'binding_of_caller'
 end
 

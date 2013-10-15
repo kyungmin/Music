@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     current_user.reset_session_token!
     session[:session_token] = nil
     flash[:notice] ||= []
-    flash[:notice] << "Successfully signed out"
+    flash[:notice] << "Signed out"
     render :new
   end
 end
