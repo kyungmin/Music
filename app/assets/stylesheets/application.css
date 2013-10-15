@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+.button_to {
+  display: inline;
+}
+
+.button_to div {
+  display: inline;
+}

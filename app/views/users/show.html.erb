@@ -1,1 +1,17 @@
-Hi
+<% if !!flash[:notice] %>
+Notice:
+<ul>
+	<% flash[:notice].each do |notice| %>
+		<li><%= notice %></li>
+	<% end %>
+</ul>
+<% end %>
+
+<% if !!flash[:errors] %>
+Errors:
+<ul>
+	<% flash[:errors].each do |error| %>
+		<li><%= error%></li>
+	<% end %>
+</ul>
+<% end %>

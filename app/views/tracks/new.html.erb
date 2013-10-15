@@ -1,0 +1,22 @@
+<h1><%= link_to "Bands", bands_url %> »
+	<%= link_to @band.name, band_url(@band) %> »
+	<%= link_to @album.name, album_url(@album) %> »
+	New Track</h1>
+
+<form action="<%= album_tracks_url %>" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<label for="track_name">Track name:</label>
+	<input type="text" id="track_name" name="track[name]">
+	<br />
+	<label for="track_type">Track type:</label>
+	<input type="radio" value="Regular" name="track[track_type]" checked>Regular</input>
+	<input type="radio" value="Bonus" name="track[track_type]">Bonus</input>
+	<br />
+
+	<label for="track_lyrics">Lyrics:</label><br />
+	<textarea rows="5" cols="30" name="track[lyrics]"></textarea>
+	<br />
+	<br />
+
+	<input type="submit" value="Add track">
+</form>

@@ -1,0 +1,17 @@
+<h2>Notes</h2>
+<% @notes.each do |note| %>
+	<p><%= note.content %> <%= button_to "Delete", note_url(note),
+		{ method: :delete, action: "destroy" } %></p>
+	<hr />
+<% end %>
+
+<br />
+
+<b>Add note:</b>
+<form action="<%= notes_url %>" method="post">
+	<input type="hidden" name="note[track_id]" value="<%= track_id %>">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<textarea rows="5" cols="50" name="note[content]"></textarea>
+	<br />
+	<input type="submit" value="Add note">
+</form>

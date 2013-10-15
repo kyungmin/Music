@@ -1,0 +1,9 @@
+<h1><%= link_to "Bands", bands_url %> »
+	<%= link_to @band.name, band_url(@band) %> »
+	<%= link_to @album.name, album_url(@album) %> »
+	<%= @track.name %>
+</h1>
+<h2>Lyrics</h2>
+<p><%= @track.lyrics %></p>
+
+<%= render 'notes/note', :track_id => @track.id %>

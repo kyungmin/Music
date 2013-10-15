@@ -7,6 +7,13 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   before_validation :set_session_token
 
+  has_many(
+  :notes,
+  :class_name => "Note",
+  :primary_key => :id,
+  :foreign_key => :user_id
+  )
+
   def secret=(secret)
     @secret = secret
     self.password_digest = BCrypt::Password.create(secret)

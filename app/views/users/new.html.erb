@@ -1,8 +1,9 @@
+<h1>Sign Up</h1>
+
 <form action="<%= users_url %>" method="post">
 	<input type="hidden"
 					name="authenticity_token"
 					value="<%= form_authenticity_token %>">
-	<h1>Sign Up</h1>
 	<label for="email">Email:</label>
 	<input id="email"
 					name="user[email]"
@@ -15,9 +16,11 @@
 					type="password">
 	<br />
 	<% if !!flash[:errors] %>
+	<ul>
 		<% flash[:errors].each do |error| %>
-			<%= error%>
+			<li><%= error%></li>
 		<% end %>
+	</ul>
 	<% end %>
 	<p><input type="submit" value="Sign Up"></p>
 </form>

@@ -8,9 +8,22 @@
 </head>
 <body>
 <% if logged_in? %>
-	<p>Logged in as <%= current_user.email %>.</p>
-	<%= link_to "Log out", session_url, :method => :delete %>
+	<p>
+		Logged in as <%= current_user.email %>.
+		<%= link_to "Log out", session_url, :method => :delete %>
+	</p>
+<% else %>
+	<%= link_to "Sign up", new_user_url %> or
+	<%= link_to "Log in", new_session_url %>
 <% end %>
+<% if !!flash[:notice] %>
+<ul>
+	<% flash[:notice].each do |notice| %>
+		<li><%= notice %></li>
+	<% end %>
+</ul>
+<% end %>
+
 <%= yield %>
 
 </body>

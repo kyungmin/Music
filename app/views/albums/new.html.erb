@@ -1,0 +1,21 @@
+<h1><%= link_to "Bands", bands_url %> »
+	<%= link_to @band.name, band_url(@band) %> » New Album</h1>
+<form action="<%= band_albums_url %>" method="post">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="band_name">Select a band:</label>
+<select id="band_name" name="album[band_id]">
+	<option value=""></option>
+	<% @bands.each do |band| %>
+		<option value="<%= band.id %>"
+			<%= "selected" if band.id == @band.id %>>
+			<%= band.name %>
+		</option>
+	<% end %>
+</select>
+<br />
+<label for="album_name">Album name:</label>
+<input type="text" id="album_name" name="album[name]">
+<br />
+<br />
+<input type="submit" value="Add album">
+</form>
